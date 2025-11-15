@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RICHELLY SHOP — Caballos de Raza · Bendorf</title>
+  <meta name="description" content="RICHELLY SHOP: Venta de caballos de raza de calidad premium. Bendorf, Alemania.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* RESET Y VARIABLES */
+    :root {
+      --primary: #8B4513;
+      --primary-dark: #654321;
+      --secondary: #D2691E;
+      --accent: #CD853F;
+      --light: #F5F5DC;
+      --dark: #333;
+      --white: #fff;
+      --gray: #6c757d;
+      --gray-light: #f8f9fa;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    .site-header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .brand h1 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .brand .sub {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav a {
+      font-weight: 500;
+      position: relative;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(139, 69, 19, 0.6)), 
+                  url('https://images.pexels.com/photos/288621/pexels-photo-288621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn.outline:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 80px 0;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--primary);
+      position: relative;
+    }
+
+    h3::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+      margin: 15px auto;
+    }
+
+    .catalog-sub, .center {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: var(--gray);
+    }
+
+    /* FILTERS */
+    .filterbar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 8px 20px;
+      border-radius: 50px;
+      background: var(--white);
+      border: 1px solid #ddd;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .chip.active, .chip:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* CATALOG GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .card .media {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card .info {
+      padding: 20px;
+    }
+
+    .card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .muted {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .card .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .btn-sm.view {
+      background: var(--gray-light);
+      color: var(--dark);
+    }
+
+    .btn-sm.view:hover {
+      background: #e2e6ea;
+    }
+
+    .btn-sm.primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-sm.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* PAYMENTS */
+    .payments {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .pay {
+      text-align: center;
+    }
+
+    .pay svg {
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 10px;
+    }
+
+    .pay-label {
+      font-weight: 500;
+      color: var(--gray);
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact p {
+      margin-bottom: 20px;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-panel {
+      background: var(--white);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9);
+      transition: var(--transition);
+    }
+
+    .modal.active .modal-panel {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      font-size: 1.5rem;
+      color: var(--gray);
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .modal-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .modal-info {
+      padding: 30px;
+    }
+
+    .modal-info h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .modal-info .price {
+      font-size: 1.4rem;
+      margin: 15px 0;
+    }
+
+    .modal-actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* WHATSAPP FIXED */
+    .wa-fixed {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      font-weight: 600;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .wa-fixed:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .site-header .wrap {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav {
+        gap: 15px;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .hero .lead {
+        font-size: 1rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-grid img {
+        border-radius: 12px 12px 0 0;
+        max-height: 250px;
+      }
+      
+      .payments {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .card .bottom {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+      
+      .actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .modal-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <h1>RICHELLY SHOP</h1>
+        <p class="sub">Caballos y Perros de Raza · Bendorf, Alemania</p>
+      </div>
+      <nav class="nav" aria-label="Menú principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#metodos">Pagos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-inner wrap">
+      <h2 id="hero-title">Caballos de Élite — Calidad & Pedigrí</h2>
+      <p class="lead">En RICHELLY SHOP ofrecemos caballos de raza de la más alta calidad, seleccionados cuidadosamente para nuestros clientes más exigentes.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn primary">Ver Catálogo</a>
+        <a href="https://wa.me/51965115456" target="_blank" rel="noopener" class="btn outline">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- CATALOGO -->
+    <section id="catalogo" class="catalog wrap" aria-labelledby="catalogo-title">
+      <h3 id="catalogo-title">Nuestros Caballos</h3>
+      <p class="catalog-sub">Descubre nuestra selección premium de caballos de raza con pedigrí certificado.</p>
+
+      <!-- FILTERBAR (visual) -->
+      <div class="filterbar" aria-hidden="true">
+        <button class="chip active">Todos</button>
+        <button class="chip">Competición</button>
+        <button class="chip">Doma</button>
+        <button class="chip">Exhibición</button>
+      </div>
+
+      <!-- GRID -->
+      <div class="grid" id="grid">
+        <!-- Note: each card has dataset attributes used by JS -->
+        <article class="card" data-name="Frisón" data-price="€ 12.800" data-desc="Imponente, elegante y dócil. Excelente para doma.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://www.zooplus.es/magazine/wp-content/uploads/2022/11/Caballo-frison-1.webp"
+                 alt="Frisón - caballo negro elegante">
+          </div>
+          <div class="info">
+            <h4>Frisón</h4>
+            <p class="muted">Raza: Frisón · Edad: 6 años</p>
+            <div class="bottom">
+              <div class="price">€ 12.800</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Fris%C3%B3n" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-name="Pura Sangre Inglés" data-price="€ 18.900" data-desc="Velocidad y resistencia, ideal para competición.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://gustavomirabalcastro.online/wp-content/uploads/2020/08/Caballo-Pura-Sangre-Ingles.jpg"
+                 alt="Pura Sangre Inglés corriendo">
+          </div>
+          <div class="info">
+            <h4>Pura Sangre Inglés</h4>
+            <p class="muted">Raza: Thoroughbred · Edad: 4 años</p>
+            <div class="bottom">
+              <div class="price">€ 18.900</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Pura%20Sangre%20Ingl%C3%A9s" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-name="Andaluz" data-price="€ 16.700" data-desc="Elegancia y tradición — excelente para doma clásica.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://i0.wp.com/vevico.wordpress.com/wp-content/uploads/2020/07/a-7.png?resize=945%2C703&ssl=1"
+                 alt="Caballo Andaluz en presentación">
+          </div>
+          <div class="info">
+            <h4>Andaluz</h4>
+            <p class="muted">Raza: Andaluz · Edad: 7 años</p>
+            <div class="bottom">
+              <div class="price">€ 16.700</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Andaluz" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-name="Hannoveriano" data-price="€ 21.300" data-desc="Raza alemana destacada para salto y competición.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://www.equirodi.es/images/annonces/xl/396305_1517239681.jpg"
+                 alt="Hannoveriano en pista de salto">
+          </div>
+          <div class="info">
+            <h4>Hannoveriano</h4>
+            <p class="muted">Raza: Hannoveriano · Edad: 5 años</p>
+            <div class="bottom">
+              <div class="price">€ 21.300</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Hannoveriano" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-name="Appaloosa" data-price="€ 10.900" data-desc="Raza con pelaje distintivo, versátil y resistente.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://images.pexels.com/photos/52500/horse-herd-fog-nature-52500.jpeg?auto=compress&cs=tinysrgb&h=650&w=1200"
+                 alt="Appaloosa con pelaje manchado">
+          </div>
+          <div class="info">
+            <h4>Appaloosa</h4>
+            <p class="muted">Raza: Appaloosa · Edad: 8 años</p>
+            <div class="bottom">
+              <div class="price">€ 10.900</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Appaloosa" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-name="Copito" data-price="€ 2.000" data-desc="Tierno chihuahua cabeza de manzana.">
+          <div class="media">
+            <img loading="lazy"
+                 src="https://blog.terranea.es/wp-content/uploads/2022/01/chihuahua-pelo-corto.jpg"
+                 alt="Mustang corriendo en campo">
+          </div>
+          <div class="info">
+            <h4>Copito</h4>
+            <p class="muted">Raza: Chihuahua Cabeza de Manzana · Edad: 1 año</p>
+            <div class="bottom">
+              <div class="price">€ 2.000</div>
+              <div class="actions">
+                <button class="btn-sm view">Ver Detalles</button>
+                <a class="btn-sm primary" href="https://wa.me/51965115456?text=Hola%20RICHELLY%20SHOP,%20quiero%20informaci%C3%B3n%20sobre%20el%20Mustang" target="_blank" rel="noopener">Consultar</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div> <!-- grid -->
+    </section>
+
+    <!-- MÉTODOS DE PAGO -->
+    <section id="metodos" class="pagos wrap" aria-labelledby="pagos-title">
+      <h3 id="pagos-title">Métodos de Pago</h3>
+      <p class="muted center">Aceptamos las principales formas de pago para tu comodidad</p>
+
+      <div class="payments">
+        <!-- Visa SVG -->
+        <div class="pay">
+          <svg viewBox="0 0 780 500" aria-hidden="true" width="140" height="90">
+            <rect width="780" height="500" fill="#fff" rx="20"></rect>
+            <path d="M150 300h120l40-200h-120z" fill="#1a1f71"/>
+            <text x="260" y="320" font-size="90" fill="#1a1f71" font-family="Arial">VISA</text>
+          </svg>
+          <div class="pay-label">Visa</div>
+        </div>
+
+        <!-- MasterCard (simple circle logo) -->
+        <div class="pay">
+          <svg viewBox="0 0 200 120" aria-hidden="true" width="140" height="90">
+            <rect width="200" height="120" fill="#fff" rx="12"></rect>
+            <circle cx="85" cy="60" r="34" fill="#ff5f00"></circle>
+            <circle cx="115" cy="60" r="34" fill="#eb001b" opacity="0.94"></circle>
+            <text x="20" y="105" font-size="18" fill="#222" font-family="Arial">MasterCard</text>
+          </svg>
+          <div class="pay-label">MasterCard</div>
+        </div>
+
+        <!-- American Express -->
+        <div class="pay">
+          <svg viewBox="0 0 600 220" aria-hidden="true" width="180" height="80">
+            <rect width="600" height="220" fill="#fff" rx="16"></rect>
+            <text x="40" y="140" font-size="90" fill="#2e77bb" font-family="Arial">AMEX</text>
+          </svg>
+          <div class="pay-label">American Express</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact wrap" aria-labelledby="contacto-title">
+      <h3 id="contacto-title">Contacto</h3>
+      <p>Estamos ubicados en Bendorf, Alemania. Para consultas inmediatas:</p>
+      <p><a class="btn primary" href="https://wa.me/51965115456" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> +51 965 115 456 — WhatsApp</a></p>
+      <p style="margin-top: 15px;">O envíanos un correo a: <strong>info@richellyshop.com</strong></p>
+    </section>
+
+  </main>
+
+  <!-- MODAL DETALLES -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-panel" role="document">
+      <button id="modal-close" class="modal-close" aria-label="Cerrar">✕</button>
+      <div class="modal-grid">
+        <img id="modal-img" src="" alt="">
+        <div class="modal-info">
+          <h4 id="modal-title"></h4>
+          <p id="modal-desc" class="muted"></p>
+          <p id="modal-price" class="price"></p>
+          <div class="modal-actions">
+            <a id="modal-wa" class="btn primary" href="#" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+            <button id="modal-close2" class="btn outline">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp fixed quick action -->
+  <a class="wa-fixed" href="https://wa.me/51965115456" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2025 RICHELLY SHOP — Caballos de Raza · Bendorf, Alemania</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Modal functionality
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-desc');
+      const modalPrice = document.getElementById('modal-price');
+      const modalWa = document.getElementById('modal-wa');
+      const closeButtons = document.querySelectorAll('#modal-close, #modal-close2');
+      
+      // View buttons
+      const viewButtons = document.querySelectorAll('.btn-sm.view');
+      
+      viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.card');
+          const imgSrc = card.querySelector('img').src;
+          const name = card.dataset.name;
+          const desc = card.dataset.desc;
+          const price = card.dataset.price;
+          
+          modalImg.src = imgSrc;
+          modalImg.alt = name;
+          modalTitle.textContent = name;
+          modalDesc.textContent = desc;
+          modalPrice.textContent = price;
+          
+          // Update WhatsApp link
+          const waText = `Hola RICHELLY SHOP, me interesa el caballo ${name} (${price}). ¿Podrían darme más información?`;
+          modalWa.href = `https://wa.me/51965115456?text=${encodeURIComponent(waText)}`;
+          
+          // Show modal
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Close modal
+      closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+      });
+      
+      // Close modal when clicking outside
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // Filter functionality (visual only for now)
+      const filterChips = document.querySelectorAll('.chip');
+      
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          // Remove active class from all chips
+          filterChips.forEach(c => c.classList.remove('active'));
+          // Add active class to clicked chip
+          this.classList.add('active');
+          
+          // In a real implementation, you would filter the cards here
+          // For this example, we'll just show a message
+          console.log(`Filtering by: ${this.textContent}`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
